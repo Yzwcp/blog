@@ -1,0 +1,99 @@
+  {{extend './common/layout.art'}}
+    {{block 'title'}}
+    <title>用户管理</title>
+    {{/block}}
+{{block  'main'}}
+    <div class="container">
+        <div class="row">
+            {{include './common/aside.art'}}
+            <article class="col-md-9">
+                <!-- Single button -->
+                  {{include './common/head.art'}}
+
+                <div class="title">
+                    <h2>文章管理</h2>
+                    <span style="margin-left: 20px;">总共 <span class="glyphicon glyphicon-equalizer"
+                            style="color: orange; font-size: 20px;">{{articles.total}}</span>片文章</span>
+                </div>
+                <a href="/admin/article-edit" class="btn btn-primary">发布文章</a>
+                <table class="table table-hover table-bordered table-striped  " style="margin-top: 10px;">
+                    <tr>
+                        <td>ID</td>
+                        <td>标题</td>
+                        <td>发布时间</td>
+                        <td>作者</td>
+                        <td>操作</td>
+                    </tr>
+                    {{each articles.records}}
+                    <tr>
+                        <td>{{@$value._id}}</td>
+                        <td>{{$value.title}}</td>
+                        <td>{{dateFormat($value.publishDate,"yyyy-mm-dd")}}</td>
+                        <td>{{$value.author.username}}</td>
+                        <td>
+                            <span data-id="{{@$value._id}}" class=" delete glyphicon glyphicon-remove " data-toggle="modal" data-target="#myModal"></span>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </table>
+                <!-- 模态 -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <form action="/admin/deleteArticle" method="get">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">确认</h4>
+                                </div>
+                                <div class="modal-body">
+                                    确认要删除这个用户吗
+                                    <input type="hidden" id="deleteId" name="id">
+                                
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <nav aria-label="Page navigation" style="position: absolute; ;left: 50%;transform: translate(-50%);">
+                    <ul class="pagination">
+                        {{if articles.page>1}}
+                        <li>
+                            <a href="/admin/article?page={{ articles.page - 1}}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        {{/if}}
+                       {{each articles.display}}
+                        <li><a href="/admin/article?page={{$value}}">{{$value}}</a></li>
+                        {{/each }}
+                        {{if articles.page<articles.pages}}
+                        <li>
+                            <a href="/admin/article?page={{ articles.page - 0+1}}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                        {{/if}}
+                    </ul>
+                </nav>
+            </article>
+
+        </div>
+             <footer class="col-md-12 pull-right">
+
+            © 2020 Copyright
+            <span>京ICP备19045251号-1|萌ICP备 20209999号| Powered by Typecho | Theme by handsome
+                © 2020 Copyright </span>
+        </footer>
+    </div>
+ {{/block}}
+ {{block 'script'}}
+<script src="/admin/js/delete.js"></script>
+
+{{/block}}

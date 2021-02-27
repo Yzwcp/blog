@@ -1,0 +1,103 @@
+{{extend './common/layout.art'}}
+{{block 'css'}}
+ <link rel="stylesheet" href="/home/css/article.css">
+{{/block}}
+
+{{block 'main'}}
+
+    <div class="container">
+
+        <!--    <header class="row">
+            <div class="m"></div>
+            <div class="logo col-md-2">LOGO</div>
+            <div class="context col-md-8"></div>
+            <div class="login col-md-2">
+                <button class="btn btn-primary">登录</button>
+                <button class="btn btn-primary">注册</button>
+            </div>
+        </header> -->
+
+        <div class="row">
+
+         
+        {{include './common/header.art'}}
+              
+            <article class="col-md-9">
+            <div class='bigh'>
+            {{include './common/head.art'}}
+                <div class="title">
+                    <h2>Umep博客</h2>
+                </div>
+                <div class="articlebody">
+                    <div class="art-content">
+                        <h2>{{article.title}}</h2>
+                        <span class="auther">{{article.author.username}}</span>
+                        <span class="time">{{dateFormat(article.publishDate,'yyyy-mm-dd')}}</span>
+                    </div>
+               
+                    <div class="content-ifno">
+                    {{@article.content}}
+                    </div>
+                </div>
+                
+                <div class="pinglun">
+                {{if usermsg}}
+                <form class="" class="" action="/home/comment" method="post">
+                    <div class="input-group " >
+                        <input type="text" name="content" class="form-control" placeholder="for...">
+                        <input type="hidden" name="uid" value="{{@usermsg._id}}">
+                        <input type="hidden" name="aid" value="{{@article._id}}">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="sumbit">评论</button>
+                        </span>
+                    </div>
+                </form>
+                {{else}}
+                    <li class="one"><b>请登录再评论</b></li>
+                {{/if}}
+                {{each comment}} 
+                <ul>
+                     <li >
+                     
+                        {{$value.uid.username}} :  {{$value.content}}
+                            <span class="pull-right">
+                            {{dateFormat($value.time,'yyyy-mm-dd')}}
+                            </span>
+                    </li>
+                   </ul>
+                  
+                  
+                   
+
+
+                {{/each}}
+
+
+
+              
+                {{if comment.page>1}}
+                
+                    <a href="/home/article?id={{@article._id}}&page={{ comment.page - 1}}" aria-label="Previous">
+                        <span aria-hidden="true">上一页</span>
+                    </a>
+                
+                {{/if}}
+                {{each comment.display}}
+                <a href="/home/article?id={{@article._id}}&page={{$value}}">{{$value}}</a>
+                {{/each }}
+                {{if comment.page<comment.pages}}
+                
+                    <a href="/home/article?id={{@article._id}}&page={{ comment.page - 0+1}}" aria-label="Next">
+                        <span aria-hidden="true">下一页</span>
+                    </a>
+                
+                {{/if}}
+            
+            </div>
+         
+            </article>
+           
+        </div>
+    </div>
+
+{{/block}}

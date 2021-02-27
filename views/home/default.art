@@ -1,0 +1,80 @@
+  {{extend './common/layout.art'}}
+{{block 'css'}}
+ <link rel="stylesheet" href="/home/css/default.css">
+{{/block}}
+   
+{{block 'main'}}
+    <div class="container">
+
+        <div class="row">
+
+        {{include './common/header.art'}}
+
+
+            <article class="col-md-9">
+             <div class="bigh">
+              {{include './common/head.art'}}
+                <div class="title">
+                    <h2>Umep博客</h2>
+                </div>
+                <ul class="list">
+                {{each result.records}}
+                    <li>
+                        <a href="/home/article?id={{@$value._id}}" class="aaa">
+                            <img src="{{$value.cover }}" alt="">
+                        </a>
+                        <div class="content">
+                            <a href="/home/article?id={{@$value._id}}">
+                                <h3>{{$value.title}}</h3>
+                            </a>
+                            <div class="content-ifno">
+                            {{@$value.content}}
+                            </div>
+                            <span class="auther">{{$value.author.username}}</span>
+                            <span class="time">{{dateFormat($value.publishDate,'yyyy-mm-dd')}}</span>
+                        </div>
+                    </li>
+                {{/each}}
+                    
+                </ul>
+                <nav aria-label="Page navigation " style='display:flex;justify-content:center'>
+                    <ul class="pagination" style="position: absolute; bottom: 0;">
+
+                    {{if result.page>1}}
+                        <li>
+                            <a href="/home/?page={{result.page-1}}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {{/if}}
+                        {{each result.display}}
+                        <li><a href="/home/?page={{$value}}">{{$value}}</a></li>
+                        {{/each}}
+
+                    {{if result.page<result.pages}}
+                        <li>
+                            <a href="/home/?page={{result.page - 0 + 1}}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {{/if}}
+                    </ul>
+                </nav>
+            </div>
+            </article>
+
+        </div>
+        <footer class="col-md-12 pull-right" style="margin: 0;
+        padding: 0;">
+            <div>
+                © 2020 Copyright
+                <span>京ICP备19045251号-1|萌ICP备 20209999号| Powered by Typecho | Theme by handsome
+                    © 2020 Copyright </span>
+            </div>
+
+        </footer>
+    </div>
+
+{{/block}}
+
+

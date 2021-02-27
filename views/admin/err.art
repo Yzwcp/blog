@@ -1,0 +1,41 @@
+
+  {{extend './common/layout.art'}}
+   
+    {{block 'title'}} 
+    <title>错误！！！！</title>
+    {{/block}}
+
+{{block  'main'}}
+<div class="col-md-3"></div>
+  <div class="panel panel-danger bg-danger col-md-6" style="margin-top:200px;padding:0 ;" >
+                    <div class="panel-heading ">
+                        <h3 class="panel-title text-center ">登录失败!!!</h3>
+                    </div>
+                    <div  class="panel-body " style="color:red">
+                         {{msg}}!!!!
+                         <p>你将在<span>2</span> 秒后返回</p>
+                    </div>
+  </div>
+<div class="col-md-3"></div>
+
+  {{/block}}
+  {{block 'script'}}
+      <script>
+      var flag = 2;
+      var p = document.querySelector('span')
+        setInterval(function () {
+                flag --;
+                p.innerHTML=flag;
+                if (flag == 0) {
+                    location.href ='/admin/login'
+                } else {
+                    
+                }
+        },2000)
+
+           
+             
+      </script>
+  {{/block}}
+
+

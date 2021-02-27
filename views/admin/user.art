@@ -1,0 +1,99 @@
+
+  {{extend './common/layout.art'}}
+
+
+    {{block 'title'}}
+        <title>用户管理</title>
+    {{/block}}
+ {{block  'main'}}
+    <div class="container">
+        <div class="row">
+           
+            {{include './common/aside.art'}}
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                     <form action="/admin/delete" method="get">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">确认</h4>
+                            </div>
+                            <div class="modal-body">
+                                确认要删除这个用户吗
+                                <input type="hidden" id="deleteId" name="id">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="subimt" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                       </form>
+                    </div>
+                </div>
+
+            <article class="col-md-9">
+                <!-- Single button -->
+            {{include './common/head.art'}}
+                <div class="title">
+                    <h2>用户名称:<span style="color:#CCFF99 ;font-size:14px;margin-left:10px">{{usermsg  && usermsg.username}}</span></h2>
+                </div>
+                <a href='/admin/user-edit' class="btn btn-primary">添加用户</a>
+                <table class="table table-hover table-bordered table-striped  " style="margin-top: 10px;">
+                    <tr>
+                        <td>ID</td>
+                        <td>用户名</td>
+                        <td>角色</td>
+                        <td>状态</td>
+                        <td>操作</td>
+                    </tr>
+                    {{each user}}
+                    <tr>
+                        <td>{{@$value._id}}</td>
+                        <td>{{$value.username}}</td>
+                        <td>{{$value.role}}</td>
+                        <td> {{$value.state == 1 ? '禁用' :  '正常'}}</td>
+                        <td>
+                           <a href="./user-edit.html">
+                          
+                           </span></a>
+                         <i  data-id="{{@$value._id}}" class="delete glyphicon glyphicon-remove " data-toggle="modal" data-target="#myModal"></i>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </table>
+             
+
+                <nav aria-label="Page navigation" style="position: absolute; ;left: 50%;transform: translate(-50%);">
+                    <ul class="pagination">
+                        <li style="display:<%= page-1 < 1 ? 'none' : 'inline' %>">
+                            <a href="/admin/user?page=<%=page-1%>" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <% for (var i = 1; i<=total;i++){ %>
+                        <li><a href="/admin/user?page=<%=i%>">{{i}}</a></li>
+                       <% } %>
+                        <li style="display:<%= page-0+1 > total ? 'none' : 'inline' %>">
+                            <a href="/admin/user?page=<%=page-0+1%>" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </article>
+
+        </div>
+        <footer class="col-md-12 pull-right">
+            © 2020 Copyright
+            <span>京ICP备19045251号-1|萌ICP备 20209999号| Powered by Typecho | Theme by handsome
+                © 2020 Copyright </span>
+        </footer>
+    </div>
+
+         
+  {{/block}}
+{{block 'script'}}
+<script src="/admin/js/delete.js"></script>
+
+{{/block}}

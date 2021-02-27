@@ -1,0 +1,20 @@
+ <aside class="col-md-3" style="position: relative;">
+                <div class="father" style="position: fixed;z-index: 999;">
+
+                    <div class="headshot">
+                        <img src="/admin/images/headshot.jpeg" alt="..." class="img-circle headshot-cir ">
+                        <div class="introdution">
+                            <p>Dancesmile | Umep</p>
+                            <p>毕业设计、网页设计</p>
+                            <p>09年入行。一直潜心研究web前端技术，分享一些个人博客模板</p>
+                        </div>
+                    </div>
+                    <ul>
+                        <li> <a class="glyphicon glyphicon-home" href="/home">首页</a></li>
+                        <li> <a class="glyphicon glyphicon-camera" href="#">相册</a></li>
+                        <li> <a class="glyphicon glyphicon-user" href="/admin/user">用户管理</a></li>
+                        <li> <a class="glyphicon glyphicon-th-list" href="/admin/article">文章管理</a></li>
+
+                    </ul>
+                </div>
+</aside>

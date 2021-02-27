@@ -1,0 +1,230 @@
+@media screen and (min-width:180px){
+    .container{
+        width: 1280px;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    /* 头部代码 */
+   body{
+       background: url(../images/bg.jpg) center;
+       background-size:150% 
+   }
+/*    header{
+        height: 50px;
+        line-height: 50px;  
+        position: fixed;
+        width: 1280px;
+        z-index: 999;
+    } */
+    
+  
+   
+
+    /* 左侧导航条 */
+    aside{
+        padding: 0 !important;
+
+    }
+    .headshot img{
+        width: 80px;
+        height: 80px;
+    }
+    .father{
+        width: 320px;
+        background:rgba(0,0,0,0.5);
+        position: fixed;
+        height: 100%;
+        
+        z-index: 999;
+        
+    }
+
+    aside .headshot{
+        
+        height: 300px;
+        
+    }
+    aside .introdution{
+        position: absolute;
+        top: 150px;
+        color: white;
+    }
+    aside .introdution p:nth-child(1){
+        text-align: center;
+        font-weight: 700;
+        font-size: 16px;
+    }
+    aside .introdution p:nth-child(2){
+        text-align: center;
+        color:#CCFF99 ;
+    }
+    aside .introdution p:nth-child(3){
+        text-align: left;
+        text-indent: 2em;
+        padding:0 20px 0 20px ;
+        color:white ;
+        opacity: 0.8;
+    }
+    .headshot-cir{
+        position: absolute;
+        left:150px;
+        top: 100px;
+        transform: translate(-50%,-50%);
+    }
+    aside ul li{
+        font-size:16px ;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+    } 
+    aside ul li a{
+        color: white;
+    }
+    aside ul li a:hover{
+        color: black;
+        text-decoration: none;
+    }
+    aside ul li:hover{
+       background-color:  rgba(213, 213, 213,0.5);
+    }
+    aside ul li a::before{
+        vertical-align: middle;
+        padding-right:5px ;
+    }
+ 
+
+
+
+
+    article{
+       
+        width:900px;
+        height: 100%;
+        padding: 10px;
+
+    }
+    .bigh{
+        height: 100%;
+        overflow: hidden;
+        border-radius: 8px;
+
+
+    }
+    article .title h2{
+        font-size: 20px;
+        margin: 0;
+    }
+    article .title{
+    	display: flex;
+    	align-items: center;
+        color: white;
+        border-radius:5px ;
+        margin-bottom: 10px;
+        padding-left: 15px;
+        height: 50px;
+        background-color:rgb(0, 0, 0,0.5) ;
+
+
+    }
+    article .title h2{
+        margin: 0;
+        padding: 0;
+    }  
+    article .list li{
+        text-align: center;
+        width:  800px;
+        height: 220px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%,0);
+    }    
+    article .list li .aaa{
+        display: block;
+        width: 400px;
+        height: 100%;
+        float: left;
+    }
+    article .list li img{
+        width: 100%;
+        height: 100%;
+    }
+    article .list li .content{
+        width: 400px;
+        float: left;
+        height: 100%;
+        color: black;
+
+        
+    }
+    article .list li a{
+        color: black;
+            
+    }
+    article .content-ifno{
+       width: 100%;
+       padding: 20px 10px;
+       line-height:25px;
+
+       text-indent: 30px;
+       font-size: 16px;
+          
+    }
+    .articlebody{
+        background: rgba(255, 255, 255, 0.5);
+        height: 100%;
+        border-radius: 8px;
+        padding: 8px;
+
+    }
+    .art-content span{
+    	margin-left: 10px;
+    }
+    article .list span{
+        margin-top:3px;
+        color: orange;
+        text-align: right;
+        display: block;
+    }
+    .pinglun li,  .pinglun a{
+        width: 100%;
+        margin: 3px auto;
+        padding: 0 10px;
+        border-radius: 8px;
+        height: 30px;
+        line-height: 30px;
+        color: white;
+        background-color: rgba(255, 228, 228, 0.5);
+
+    }
+    .pinglun li:hover{
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .pinglun .one{
+        height: 50px;
+        line-height: 50px;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    article .pinglun{
+        margin-left: 480px;
+        transform: translate(-50%,0);
+        margin-top: 20px;
+    }
+
+    footer{
+        width: 900px !important;
+        color: white;
+        height: 35px;
+        text-align: center; 
+        line-height: 35px;
+        
+    }
+  
+  
+}

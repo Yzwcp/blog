@@ -1,0 +1,188 @@
+@media screen and (min-width:180px){
+    .container{
+        width: 1280px;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    /* 头部代码 */
+   body{
+       /* background: url(../images/bg.jpg) 100% center;
+       background-size: 100% 100%; */
+   }
+/*    header{
+        height: 50px;
+        line-height: 50px;  
+        position: fixed;
+        width: 1280px;
+        z-index: 999;
+    } */
+    
+  
+   
+
+    /* 左侧导航条 */
+    aside{
+        padding: 0 !important;
+    }
+    .headshot img{
+        width: 80px;
+        height: 80px;
+    }
+    .father{
+         width: 320px;
+        background: url('../images/header-bg.png') center;
+        position: fixed;height:100%; z-index: 999;
+    }
+
+    aside .headshot{
+        height: 300px;
+    }
+    aside .introdution{
+        position: absolute;
+        top: 150px;
+        color: white;
+    }
+    aside .introdution p:nth-child(1){
+        text-align: center;
+        font-weight: 700;
+        font-size: 16px;
+    }
+    aside .introdution p:nth-child(2){
+        text-align: center;
+        color:#CCFF99 ;
+    }
+    aside .introdution p:nth-child(3){
+        text-align: left;
+        text-indent: 2em;
+        padding:0 20px 0 20px ;
+        color:white ;
+        opacity: 0.8;
+    }
+    .headshot-cir{
+        position: absolute;
+        left:50%;
+        top: 60px;
+        transform: translate(-50%);
+    }
+    aside ul li{
+        font-size:16px ;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+    } 
+    aside ul li a{
+        color: white;
+    }
+    aside ul li a:hover{
+        color: black;
+        text-decoration: none;
+    }
+    aside ul li:hover{
+       background-color:  rgba(213, 213, 213,0.5);
+    }
+    aside ul li a::before{
+        vertical-align: middle;
+        padding-right:5px ;
+    }
+ 
+
+
+
+
+    article{
+        width:1000px;
+        height: 900px;
+        padding: 10px;
+
+    }
+    article .title h2{
+        font-size: 20px;
+      
+    }
+    article .title{
+    	display: flex;
+    	align-items: center;
+        color: white;
+        border-radius: 5px 0px 0px 5px ;
+        margin-bottom: 10px;
+        padding-left: 15px;
+        height: 50px;
+        background-color:RGB(41,101,168) ;
+    }
+    article .title h2{
+        margin: 0;
+        padding: 0;
+    }  
+    /*article .list li{
+        text-align: center;
+        width:  800px;
+        height: 220px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%,0);
+    }    
+    article .list li .aaa{
+        display: block;
+        width: 400px;
+        height: 100%;
+        float: left;
+    }
+    article .list li img{
+        width: 100%;
+        height: 100%;
+    }
+    article .list li .content{
+        width: 400px;
+        float: left;
+        height: 100%;
+        color: black;
+    }
+    article .list li a{
+        color: black;
+    }
+    article .list li .content-ifno{
+        padding: 0 10px;
+        text-indent: 2em;
+        display: block;
+        display: -webkit-box;
+        max-width: 400px;
+        height: 100px;
+        margin: 0 auto;
+        font-size: 18px;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+          
+    }*/
+    article .list span{
+        margin-top:3px;
+        color: orange;
+        text-align: right;
+        display: block;
+    }
+    table span:nth-child(1):hover{
+        color: blue;
+    }
+    table span:nth-child(2):hover{
+        color: red;
+    }
+
+   
+    footer{
+        width: 900px !important;
+        color: black;
+        height: 35px;
+        text-align: center; 
+        line-height: 35px;
+        margin: 0px ;
+    }
+}
